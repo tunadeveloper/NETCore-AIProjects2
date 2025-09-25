@@ -16,7 +16,7 @@
         <div class="card-body text-center">
             <form asp-action="Index" asp-controller="DeepGramAIVoice" method="post" enctype="multipart/form-data">
                 <input type="file" name="audioFile" accept=".mp3,.wav,.m4a" class="form-control mb-2" />
-                <button type="submit" class="btn btn-primary">Transcribe</button>
+                <button type="submit" class="btn btn-primary">Yazıya Çevir</button>
             </form>
 
             @if (ViewBag.Transcript != null)
