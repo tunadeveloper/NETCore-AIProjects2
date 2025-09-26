@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<HuggingFaceSentimentAnalysisService>();
 builder.Services.AddHttpClient<DeepgramAIVoiceService>();
+builder.Services.AddHttpClient<HuggingFaceSummarizeTextService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

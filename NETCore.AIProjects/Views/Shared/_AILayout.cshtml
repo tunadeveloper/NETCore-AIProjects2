@@ -1,4 +1,4 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper Html
 @{
     Layout = null;
 }
@@ -56,21 +56,21 @@
                 </div>
 
                 <div class="menu-inner-shadow"></div>
-
                 <ul class="menu-inner py-1">
-                    <li class="menu-item">
+                    <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "DeepGramAIVoice" ? "active" : "")">
                         <a href="/DeepGramAIVoice/Index" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">01 - Deepgram AI Voice</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceSentimentAnalysis" ? "active" : "")">
                         <a href="/HuggingFaceSentimentAnalysis/Index" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">02 - Hugging Face Sentiment Analysis</div>
                         </a>
                     </li>
                 </ul>
+
             </aside>
             <div class="layout-page">
                 <div class="content-wrapper">
