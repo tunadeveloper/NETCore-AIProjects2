@@ -69,6 +69,12 @@
                             <div data-i18n="Analytics">02 - Hugging Face Sentiment Analysis</div>
                         </a>
                     </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceSummarizeText" ? "active" : "")">
+                        <a href="/HuggingFaceSummarizeText/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">03 - Hugging Face Summarize Text</div>
+                        </a>
+                    </li>
                 </ul>
 
             </aside>
