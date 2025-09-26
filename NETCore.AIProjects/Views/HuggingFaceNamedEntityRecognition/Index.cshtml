@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Named Entity Recognition";
+    Layout = "~/Views/Shared/_AILayout.cshtml";
+}
+
+<div class="col-12 col-lg-12 order-1 mb-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5 class="mb-0 fw-bold">🧠 HuggingFace Named Entity Recognition</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+    <div class="card">
+        <div class="card-body text-center">
+            <form asp-action="Index" asp-controller="HuggingFaceNamedEntityRecognition" method="post">
+                <textarea name="inputText" class="form-control mb-3" rows="6"
+                          placeholder="Analiz etmek istediğiniz metni buraya yazın..."></textarea>
+                <button type="submit" class="btn btn-primary">Analiz Et</button>
+            </form>
+
+            @if (ViewBag.Result != null)
+            {
+                <div class="mt-4 text-start">
+                    <h6 class="fw-bold text-secondary mb-3">🔎 Analysis Result:</h6>
+
+                    <div class="alert alert-light border shadow-sm" role="alert">
+                        <p class="mb-2">
+                            <span class="fw-bold text-primary">Entity:</span>
+                            <span class="badge bg-primary">@ViewBag.Result.Split(",")[0].Replace("Entity:", "").Trim()</span>
+                        </p>
+                        <p class="mb-2">
+                            <span class="fw-bold text-success">Word:</span>
+                            <span class="badge bg-success">@ViewBag.Result.Split(",")[1].Replace("Word:", "").Trim()</span>
+                        </p>
+                        <p class="mb-0">
+                            <span class="fw-bold text-warning">Score:</span>
+                            <span class="badge bg-warning text-dark">@ViewBag.Result.Split(",")[2].Replace("Score:", "").Trim() %</span>
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
