@@ -10,9 +10,9 @@ namespace NETCore.AIProjects.Services
         private readonly string apiKey = "API_KEY";
         private readonly string deepgramUrl = "https://api.deepgram.com/v1/listen?language=tr";
 
-        public DeepgramAIVoiceService()
+        public DeepgramAIVoiceService(HttpClient httpClient)
         {
-            _httpClient = new HttpClient();
+            _httpClient = httpClient;
             _httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Token", apiKey);
         }

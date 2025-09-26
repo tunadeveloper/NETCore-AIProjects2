@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Sentiment Analysis";
+    Layout = "~/Views/Shared/_AILayout.cshtml";
+
+    string resultColor = "black"; // default
+    if (ViewBag.Sentiment != null)
+    {
+        if (ViewBag.Sentiment.ToString().Contains("POZİTİF"))
+            resultColor = "green";
+        else if (ViewBag.Sentiment.ToString().Contains("NÖTR"))
+            resultColor = "gray";
+        else if (ViewBag.Sentiment.ToString().Contains("NEGATİF"))
+            resultColor = "red";
+    }
+}
+
+<div class="col-12 col-lg-12 order-1 mb-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5 class="mb-0 fw-bold">🤖 HuggingFace Sentiment Analysis</h5>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+    <div class="card">
+        <div class="card-body text-center">
+            <form asp-action="Index" asp-controller="HuggingFaceSentimentAnalysis" method="post">
+                <textarea name="text" class="form-control mb-3" rows="4"
+                          placeholder="Bir cümle yazın: Bugün çok mutluyum."></textarea>
+                <button type="submit" class="btn btn-primary">Analiz Et</button>
+            </form>
+
+            @if (ViewBag.Sentiment != null)
+            {
+                <div class="mt-3">
+                    <h6>Sonuç:</h6>
+                    <p class="fw-bold" style="color:@resultColor;">@ViewBag.Sentiment</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
