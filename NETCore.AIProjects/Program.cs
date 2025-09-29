@@ -9,6 +9,7 @@ builder.Services.AddHttpClient<HuggingFaceSentimentAnalysisService>();
 builder.Services.AddHttpClient<DeepgramAIVoiceService>();
 builder.Services.AddHttpClient<HuggingFaceSummarizeTextService>();
 builder.Services.AddHttpClient<HuggingFaceNamedEntityRecognitionService>();
+builder.Services.AddHttpClient<HuggingFaceRobertaBaseQAService>();
 
 var app = builder.Build();
 

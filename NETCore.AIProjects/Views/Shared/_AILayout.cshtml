@@ -4,117 +4,191 @@
 }
 
 <!DOCTYPE html>
-<html lang="en"
-      class="light-style layout-menu-fixed"
-      dir="ltr"
-      data-theme="theme-default"
-      data-assets-path="../assets/"
-      data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-
-    <meta name="description" content="" />
-
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-          rel="stylesheet" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Projects Dashboard</title>
     <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/fonts/boxicons.css" />
-
-    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/css/theme-default.css" />
     <link rel="stylesheet" href="/sneat-1.0.0/assets/css/demo.css" />
-    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="/sneat-1.0.0/assets/vendor/libs/apex-charts/apex-charts.css" />
-
-    <script src="/sneat-1.0.0/assets/vendor/js/helpers.js"></script>
-<script src="/sneat-1.0.0/assets/js/config.js"></script>
 </head>
 
 <body>
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-                <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2"
-                              style="font-size: 20px; color: #696cff; letter-spacing: 2px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); text-transform: uppercase;">
-                            🤖 AI PROJECTS
-                        </span>
+                <div class="app-brand demo d-flex align-items-center justify-content-between px-3 py-2">
+                    <a href="/" class="app-brand-link">
+                        <span class="app-brand-text">🤖 AI PROJECTS</span>
                     </a>
-                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-                    </a>
+                    <button id="toggle-theme">🌙</button>
                 </div>
 
-                <div class="menu-inner-shadow"></div>
-                <ul class="menu-inner py-1">
+                <ul class="menu-inner py-1 mt-3">
                     <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "DeepGramAIVoice" ? "active" : "")">
                         <a href="/DeepGramAIVoice/Index" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">01 - Deepgram AI Voice</div>
+                            <i class="menu-icon bx bx-microphone"></i>
+                            <div>01 - Deepgram AI Voice</div>
                         </a>
                     </li>
                     <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceSentimentAnalysis" ? "active" : "")">
                         <a href="/HuggingFaceSentimentAnalysis/Index" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">02 - Hugging Face Sentiment Analysis</div>
+                            <i class="menu-icon bx bx-happy"></i>
+                            <div>02 - Sentiment Analysis</div>
                         </a>
                     </li>
                     <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceSummarizeText" ? "active" : "")">
                         <a href="/HuggingFaceSummarizeText/Index" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">03 - Hugging Face Summarize Text</div>
+                            <i class="menu-icon bx bx-book-open"></i>
+                            <div>03 - Summarize Text</div>
                         </a>
                     </li>
                     <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceNamedEntityRecognition" ? "active" : "")">
-                        <a href="/HuggingFaceSummarizeText/Index" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">04 - Hugging Face Named Entity Recognition</div>
+                        <a href="/HuggingFaceNamedEntityRecognition/Index" class="menu-link">
+                            <i class="menu-icon bx bx-highlight"></i>
+                            <div>04 - Named Entity Recognition</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HuggingFaceRobertaBaseQA" ? "active" : "")">
+                        <a href="/HuggingFaceRobertaBaseQA/Index" class="menu-link">
+                            <i class="menu-icon bx bx-question-mark"></i>
+                            <div>05 - Roberta Base QA</div>
                         </a>
                     </li>
                 </ul>
-
             </aside>
+
             <div class="layout-page">
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         @RenderBody()
                     </div>
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                Tunahan Cengiz
-                            </div>
-                        </div>
+                    <footer>
+                        © <script>document.write(new Date().getFullYear());</script> Tunahan Cengiz
                     </footer>
-                    <div class="content-backdrop fade"></div>
                 </div>
             </div>
         </div>
-
-        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
-    <script src="/sneat-1.0.0/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="/sneat-1.0.0/assets/vendor/libs/popper/popper.js"></script>
-    <script src="/sneat-1.0.0/assets/vendor/js/bootstrap.js"></script>
-    <script src="/sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="/sneat-1.0.0/assets/vendor/js/menu.js"></script>
-    <script src="/sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-    <script src="/sneat-1.0.0/assets/js/main.js"></script>
-    <script src="/sneat-1.0.0/assets/js/dashboards-analytics.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .app-brand-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #444;
+            transition: color 0.3s;
+        }
+
+        .menu-link {
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+            .menu-link:hover {
+                background: #f3f4f6 !important;
+                color: #111 !important;
+                transform: translateX(4px);
+            }
+
+        .menu-item.active .menu-link {
+            background: #e5e7eb !important;
+            font-weight: 600;
+        }
+
+        body.dark {
+            background: #1e1e2f;
+            color: #e5e7eb;
+        }
+
+            body.dark .app-brand-text {
+                color: #fff;
+            }
+
+            body.dark .menu-link:hover {
+                background: #2a2a40 !important;
+                color: #fff !important;
+            }
+
+            body.dark .menu-item.active .menu-link {
+                background: #3a3a55 !important;
+                color: #fff !important;
+            }
+
+            body.dark #layout-menu {
+                background: #1b1b2f !important;
+                border-right: 1px solid #2a2a40;
+            }
+
+            body.dark .layout-navbar,
+            body.dark .content-wrapper {
+                background: #1e1e2f !important;
+            }
+
+            body.dark .app-brand-link,
+            body.dark .menu-link div,
+            body.dark .menu-icon {
+                color: #ddd !important;
+            }
+
+        footer {
+            border-top: 1px solid #ddd;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        body.dark footer {
+            border-top: 1px solid #333;
+        }
+
+        #toggle-theme {
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            background: #696cff;
+            color: #fff;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+            #toggle-theme:hover {
+                background: #4a4ef5;
+            }
+
+        body.dark #toggle-theme {
+            background: #444;
+        }
+
+            body.dark #toggle-theme:hover {
+                background: #666;
+            }
+    </style>
+    <script>
+        const toggleBtn = document.getElementById('toggle-theme');
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            if (document.body.classList.contains('dark')) {
+                localStorage.setItem("theme", "dark");
+                toggleBtn.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleBtn.textContent = "🌙";
+            }
+        });
+    </script>
 </body>
 </html>

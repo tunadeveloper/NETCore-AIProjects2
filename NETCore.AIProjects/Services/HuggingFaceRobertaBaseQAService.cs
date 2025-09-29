@@ -16,23 +16,30 @@ namespace NETCore.AIProjects.Services
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
         }
 
-        public async Task<string> RobertaBaseQA(string text)
+        public async Task<string> RobertaBaseQA(string question, string context)
         {
             var requestBody = new
             {
-                inputs = text
+                inputs = new
+                {
+                    question = question,
+                    context = context
+                }
             };
 
-           var response = await _httpClient.PostAsync(
-               apiUrl,
-               new StringContent(JsonSerializer.Serialize(new {inputs = text}), Encoding.UTF8, "application/json"));
+            var response = await _httpClient.PostAsync(
+                apiUrl,
+                new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json")
+            );
+
             var doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
-            if(doc.RootElement.TryGetProperty("answer", out var answer))
+            if (doc.RootElement.TryGetProperty("answer", out var answer))
             {
                 return answer.GetString();
             }
 
-            return "Answer not found";
+            return "Cevap bulunamadı";
         }
+
     }
 }
